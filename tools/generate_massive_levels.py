@@ -1,7 +1,13 @@
 from __future__ import annotations
 
+import argparse
 import json
+import sys
 from pathlib import Path
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
 import config
 
@@ -120,7 +126,12 @@ def generate_levels(start_index: int = 6, count: int = 180) -> tuple[int, int]:
 
 
 def main() -> None:
-    written, objects = generate_levels()
+    parser = argparse.ArgumentParser(description="Generate a large set of level JSON files.")
+    parser.add_argument("--start", type=int, default=6, help="Start level index, inclusive")
+    parser.add_argument("--count", type=int, default=180, help="Number of levels to generate")
+    args = parser.parse_args()
+
+    written, objects = generate_levels(start_index=args.start, count=args.count)
     print(f"Generated level files: {written}")
     print(f"Total objects generated: {objects}")
 

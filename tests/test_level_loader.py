@@ -5,16 +5,16 @@ from pathlib import Path
 from levels.loader import LevelLoader
 
 
-_LEVEL_TEMPLATE = """{
-  \"id\": \"{id}\",
-  \"name\": \"{name}\",
-  \"difficulty\": \"Easy\",
-  \"music\": \"track_01\",
-  \"speed\": \"normal\",
-  \"background_theme\": \"default\",
-  \"length\": 2400,
-  \"objects\": []
-}
+_LEVEL_TEMPLATE = """{{
+    \"id\": \"{id}\",
+    \"name\": \"{name}\",
+    \"difficulty\": \"Easy\",
+    \"music\": \"track_01\",
+    \"speed\": \"normal\",
+    \"background_theme\": \"default\",
+    \"length\": 2400,
+    \"objects\": []
+}}
 """
 
 

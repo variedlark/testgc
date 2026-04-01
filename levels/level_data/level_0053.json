@@ -1,0 +1,433 @@
+{
+  "id": "massive_0053",
+  "name": "Massive Grid 0053",
+  "difficulty": "Normal",
+  "music": "track_03",
+  "speed": "fast",
+  "background_theme": "aqua",
+  "length": 8385,
+  "objects": [
+    {
+      "type": "block",
+      "x": 320.0,
+      "y": 520,
+      "width": 160,
+      "height": 50
+    },
+    {
+      "type": "spike",
+      "x": 460.0,
+      "y": 540,
+      "size": 40
+    },
+    {
+      "type": "orb",
+      "x": 505.0,
+      "y": 400
+    },
+    {
+      "type": "platform",
+      "x": 530.0,
+      "y": 390,
+      "width": 100,
+      "height": 22
+    },
+    {
+      "type": "pad",
+      "x": 390.0,
+      "y": 600,
+      "width": 42,
+      "height": 20
+    },
+    {
+      "type": "portal",
+      "x": 570.0,
+      "y": 470,
+      "kind": "gravity",
+      "value": "invert"
+    },
+    {
+      "type": "block",
+      "x": 600.0,
+      "y": 440,
+      "width": 120,
+      "height": 50
+    },
+    {
+      "type": "spike",
+      "x": 740.0,
+      "y": 580,
+      "size": 40
+    },
+    {
+      "type": "block",
+      "x": 900.0,
+      "y": 520,
+      "width": 140,
+      "height": 50
+    },
+    {
+      "type": "spike",
+      "x": 1040.0,
+      "y": 560,
+      "size": 40
+    },
+    {
+      "type": "orb",
+      "x": 1085.0,
+      "y": 430
+    },
+    {
+      "type": "block",
+      "x": 1120.0,
+      "y": 440,
+      "width": 160,
+      "height": 50
+    },
+    {
+      "type": "spike",
+      "x": 1260.0,
+      "y": 540,
+      "size": 40
+    },
+    {
+      "type": "platform",
+      "x": 1330.0,
+      "y": 460,
+      "width": 100,
+      "height": 22
+    },
+    {
+      "type": "block",
+      "x": 1360.0,
+      "y": 520,
+      "width": 120,
+      "height": 50
+    },
+    {
+      "type": "spike",
+      "x": 1500.0,
+      "y": 580,
+      "size": 40
+    },
+    {
+      "type": "orb",
+      "x": 1545.0,
+      "y": 460
+    },
+    {
+      "type": "pad",
+      "x": 1430.0,
+      "y": 600,
+      "width": 42,
+      "height": 20
+    },
+    {
+      "type": "block",
+      "x": 1620.0,
+      "y": 440,
+      "width": 140,
+      "height": 50
+    },
+    {
+      "type": "spike",
+      "x": 1760.0,
+      "y": 560,
+      "size": 40
+    },
+    {
+      "type": "portal",
+      "x": 1870.0,
+      "y": 470,
+      "kind": "speed",
+      "value": "fast"
+    },
+    {
+      "type": "block",
+      "x": 1900.0,
+      "y": 520,
+      "width": 160,
+      "height": 50
+    },
+    {
+      "type": "spike",
+      "x": 2040.0,
+      "y": 540,
+      "size": 40
+    },
+    {
+      "type": "orb",
+      "x": 2085.0,
+      "y": 400
+    },
+    {
+      "type": "platform",
+      "x": 2110.0,
+      "y": 390,
+      "width": 100,
+      "height": 22
+    },
+    {
+      "type": "block",
+      "x": 2200.0,
+      "y": 440,
+      "width": 120,
+      "height": 50
+    },
+    {
+      "type": "spike",
+      "x": 2340.0,
+      "y": 580,
+      "size": 40
+    },
+    {
+      "type": "block",
+      "x": 2420.0,
+      "y": 520,
+      "width": 140,
+      "height": 50
+    },
+    {
+      "type": "spike",
+      "x": 2560.0,
+      "y": 560,
+      "size": 40
+    },
+    {
+      "type": "orb",
+      "x": 2605.0,
+      "y": 430
+    },
+    {
+      "type": "pad",
+      "x": 2490.0,
+      "y": 600,
+      "width": 42,
+      "height": 20
+    },
+    {
+      "type": "block",
+      "x": 2660.0,
+      "y": 440,
+      "width": 160,
+      "height": 50
+    },
+    {
+      "type": "spike",
+      "x": 2800.0,
+      "y": 540,
+      "size": 40
+    },
+    {
+      "type": "platform",
+      "x": 2870.0,
+      "y": 460,
+      "width": 100,
+      "height": 22
+    },
+    {
+      "type": "block",
+      "x": 2920.0,
+      "y": 520,
+      "width": 120,
+      "height": 50
+    },
+    {
+      "type": "spike",
+      "x": 3060.0,
+      "y": 580,
+      "size": 40
+    },
+    {
+      "type": "orb",
+      "x": 3105.0,
+      "y": 460
+    },
+    {
+      "type": "portal",
+      "x": 3170.0,
+      "y": 470,
+      "kind": "gravity",
+      "value": "invert"
+    },
+    {
+      "type": "block",
+      "x": 3200.0,
+      "y": 440,
+      "width": 140,
+      "height": 50
+    },
+    {
+      "type": "spike",
+      "x": 3340.0,
+      "y": 560,
+      "size": 40
+    },
+    {
+      "type": "block",
+      "x": 3500.0,
+      "y": 520,
+      "width": 160,
+      "height": 50
+    },
+    {
+      "type": "spike",
+      "x": 3640.0,
+      "y": 540,
+      "size": 40
+    },
+    {
+      "type": "orb",
+      "x": 3685.0,
+      "y": 400
+    },
+    {
+      "type": "platform",
+      "x": 3710.0,
+      "y": 390,
+      "width": 100,
+      "height": 22
+    },
+    {
+      "type": "pad",
+      "x": 3570.0,
+      "y": 600,
+      "width": 42,
+      "height": 20
+    },
+    {
+      "type": "block",
+      "x": 3720.0,
+      "y": 440,
+      "width": 120,
+      "height": 50
+    },
+    {
+      "type": "spike",
+      "x": 3860.0,
+      "y": 580,
+      "size": 40
+    },
+    {
+      "type": "block",
+      "x": 3960.0,
+      "y": 520,
+      "width": 140,
+      "height": 50
+    },
+    {
+      "type": "spike",
+      "x": 4100.0,
+      "y": 560,
+      "size": 40
+    },
+    {
+      "type": "orb",
+      "x": 4145.0,
+      "y": 430
+    },
+    {
+      "type": "block",
+      "x": 4220.0,
+      "y": 440,
+      "width": 160,
+      "height": 50
+    },
+    {
+      "type": "spike",
+      "x": 4360.0,
+      "y": 540,
+      "size": 40
+    },
+    {
+      "type": "platform",
+      "x": 4430.0,
+      "y": 460,
+      "width": 100,
+      "height": 22
+    },
+    {
+      "type": "portal",
+      "x": 4470.0,
+      "y": 470,
+      "kind": "speed",
+      "value": "fast"
+    },
+    {
+      "type": "block",
+      "x": 4500.0,
+      "y": 520,
+      "width": 120,
+      "height": 50
+    },
+    {
+      "type": "spike",
+      "x": 4640.0,
+      "y": 580,
+      "size": 40
+    },
+    {
+      "type": "orb",
+      "x": 4685.0,
+      "y": 460
+    },
+    {
+      "type": "pad",
+      "x": 4570.0,
+      "y": 600,
+      "width": 42,
+      "height": 20
+    },
+    {
+      "type": "block",
+      "x": 4800.0,
+      "y": 440,
+      "width": 140,
+      "height": 50
+    },
+    {
+      "type": "spike",
+      "x": 4940.0,
+      "y": 560,
+      "size": 40
+    },
+    {
+      "type": "block",
+      "x": 5020.0,
+      "y": 520,
+      "width": 160,
+      "height": 50
+    },
+    {
+      "type": "spike",
+      "x": 5160.0,
+      "y": 540,
+      "size": 40
+    },
+    {
+      "type": "orb",
+      "x": 5205.0,
+      "y": 400
+    },
+    {
+      "type": "platform",
+      "x": 5230.0,
+      "y": 390,
+      "width": 100,
+      "height": 22
+    },
+    {
+      "type": "block",
+      "x": 5260.0,
+      "y": 440,
+      "width": 120,
+      "height": 50
+    },
+    {
+      "type": "spike",
+      "x": 5400.0,
+      "y": 580,
+      "size": 40
+    }
+  ]
+}
