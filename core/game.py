@@ -46,8 +46,13 @@ class Game:
         self.services = ServiceContainer()
         # Register core services so plugins/systems can resolve them
         self.services.register_singleton("event_bus", self.event_bus)
+        self.services.register_singleton("game", self)
+        self.services.register_singleton("clock", self.clock)
+        self.services.register_singleton("scene_manager", self.scene_manager)
+        self.services.register_singleton("input", self.input)
         self.services.register_singleton("audio", self.audio)
         self.services.register_singleton("save_manager", self.save_manager)
+        self.services.register_singleton("high_scores", self.high_scores)
         self.services.register_singleton("level_loader", self.level_loader)
         self.services.register_singleton("level_builder", self.level_builder)
 
@@ -184,29 +189,54 @@ class Game:
         # Unload plugins to allow clean reloads in dev
         try:
             if hasattr(self, "plugin_manager"):
-                for name in list(self.plugin_manager._loaded):
-                    try:
-                        self.plugin_manager.unload(name)
-                    except Exception:
-                        pass
+                self.plugin_manager.unload_all()
         except Exception:
             pass
         pygame.quit()
 
-    def _hot_reload_cb(self, path: Path) -> None:
+    def _hot_reload_cb(self, path: Path, change_type: str = "modified") -> None:
         """Callback for HotReloader: reload plugins or emit asset-changed events."""
         try:
             # Plugins are stored in the plugin dir; if a .py changed there, reload it
             if path.suffix == ".py" and path.parent == self.plugin_manager.plugin_dir:
                 try:
-                    self.plugin_manager.load(path, self)
+                    plugin_name = self.plugin_manager.module_name_for_path(path)
+                    if change_type == "deleted":
+                        self.plugin_manager.unload(plugin_name)
+                        self.event_bus.emit_later(
+                            "plugin.unloaded",
+                            {"name": plugin_name, "path": str(path), "change": change_type},
+                        )
+                    else:
+                        plugin_module = self.plugin_manager.reload(path, self)
+                        self.event_bus.emit_later(
+                            "plugin.reloaded",
+                            {
+                                "name": plugin_name,
+                                "path": str(path),
+                                "change": change_type,
+                                "ok": plugin_module is not None,
+                            },
+                        )
                 except Exception:
                     # Loading may fail; swallow to avoid breaking the reloader
+                    pass
+            elif path.suffix == ".json" and path.parent == Path(config.LEVELS_DIR):
+                try:
+                    self.levels = self.level_loader.load_all()
+                    self.event_bus.emit_later(
+                        "levels.reloaded",
+                        {"count": len(self.levels), "path": str(path), "change": change_type},
+                    )
+                except Exception:
                     pass
             else:
                 # Notify systems/plugins that an asset changed
                 try:
-                    self.event_bus.emit_later("hotreload.file_changed", str(path))
+                    self.event_bus.emit_later(
+                        "hotreload.file_changed",
+                        {"path": str(path), "change": change_type},
+                    )
                 except Exception:
                     pass
         except Exception:

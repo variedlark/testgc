@@ -58,8 +58,18 @@ class EventBus:
             event_name, payload = self._pending.popleft()
             self.emit(event_name, payload)
 
+    def subscriber_count(self, event_name: str | None = None) -> int:
+        if event_name is None:
+            return sum(len(subs) for subs in self._subscribers.values())
+        return len(self._subscribers.get(event_name, []))
+
+    def pending_count(self) -> int:
+        return len(self._pending)
+
     def clear(self, event_name: str | None = None) -> None:
         if event_name is None:
             self._subscribers.clear()
+            self._pending.clear()
         else:
             self._subscribers.pop(event_name, None)
+            self._pending = deque([(name, payload) for name, payload in self._pending if name != event_name])
