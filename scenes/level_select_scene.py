@@ -11,6 +11,7 @@ class LevelSelectScene(GameSceneBase):
     def __init__(self, game: object) -> None:
         super().__init__(game)
         self.selected = 0
+        self.window_size = 6
         self.background = BackgroundRenderer()
         self.time_in_scene = 0.0
 
@@ -47,11 +48,21 @@ class LevelSelectScene(GameSceneBase):
         panel = pygame.Rect(220, 150, 840, 460)
         self.draw_panel(screen, panel)
 
+        if not self.game.levels:
+            empty = self.font_medium.render("No levels found", True, config.COLORS["danger"])
+            screen.blit(empty, ((config.SCREEN_WIDTH - empty.get_width()) // 2, panel.y + 200))
+            return
+
         line_height = 78
         base_y = panel.y + 40
 
-        for index, level in enumerate(self.game.levels):
-            row_y = base_y + index * line_height
+        start = max(0, self.selected - self.window_size)
+        end = min(len(self.game.levels), self.selected + self.window_size + 1)
+        visible_levels = self.game.levels[start:end]
+
+        for visible_index, level in enumerate(visible_levels):
+            index = start + visible_index
+            row_y = base_y + visible_index * line_height
             selected = index == self.selected
             unlocked = self.game.is_level_unlocked(index)
 
@@ -77,6 +88,10 @@ class LevelSelectScene(GameSceneBase):
 
             right_surface = self.font_small.render(right_text, True, right_color)
             screen.blit(right_surface, (panel.x + 420, row_y + 9))
+
+        range_text = f"Showing {start + 1}-{end} of {len(self.game.levels)}"
+        range_surface = self.font_small.render(range_text, True, config.COLORS["text_dim"])
+        screen.blit(range_surface, (panel.x + 26, panel.bottom - 38))
 
         hint = self.font_small.render("Enter to play, Esc to go back", True, config.COLORS["text_dim"])
         screen.blit(hint, ((config.SCREEN_WIDTH - hint.get_width()) // 2, config.SCREEN_HEIGHT - 44))
