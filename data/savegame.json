@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "unlocked_levels": 1,
+  "levels": {},
+  "settings": {
+    "music_volume": 0.6,
+    "sfx_volume": 0.85,
+    "show_fps": false
+  }
+}

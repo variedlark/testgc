@@ -27,7 +27,9 @@ class InputManager:
         self._just_mouse_pressed.clear()
 
     def handle_event(self, event: pygame.event.Event) -> None:
-        if event.type == pygame.KEYDOWN and not event.repeat:
+        # Some pygame builds/events may not include a `repeat` attribute.
+        # Use getattr() with a default to remain compatible.
+        if event.type == pygame.KEYDOWN and not getattr(event, "repeat", False):
             for action, keys in self._keys_for_action.items():
                 if event.key in keys:
                     self._held.add(action)
